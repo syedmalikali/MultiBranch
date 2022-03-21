@@ -1,0 +1,15 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Quotation",
+  "enabled": 1,
+  "modified": "2022-03-21 11:26:48.488148",
+  "name": "Quotation-Form",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "script": "frappe.ui.form.on(\"Quotation\", \"onload\", function(frm) {\r\n    let tuser_id= frappe.session.user;\r\n    let tcompany=frm.doc.company;\r\n   // msgprint(tcompany);\r\nfrappe.call({\r\n    method: \"erpnext.controllers.queries.cur_branch\", //dotted path to server method\r\n    args: {'user_id': tuser_id},\r\n    callback: function(r) {\r\n      // console.log(r.message);\r\n        var brn = r.message[0];\r\n        frm.set_value('branch', r.message[0].branch);\r\n        \r\n    }\r\n});\r\n// Company Abbr\r\nfrappe.call({\r\n    method: \"erpnext.controllers.queries.comp_abbr\", //dotted path to server method\r\n    args: {'company': tcompany},\r\n    callback: function(r) {\r\n        //console.log(r.message);\r\n        var abbr = r.message[0].abbr;\r\n        //frm.set_value('branch', abbr);\r\n        \r\n    }\r\n});\r\n//branch filter\r\nfrm.set_query(\"branch2\", function() {\r\n    \t\t\treturn {\r\n    \t\t\t\t\"filters\": {\r\n    \t\t\t\t\t\"name\": frm.doc.branch\r\n    \t\t\t\t\t\r\n    \t\t\t\t\t//\"is_group\": 0\r\n    \t\t\t\t}\r\n    \t\t\t};\r\n    \t\t});\r\n\r\nfrm.fields_dict['items'].grid.get_field('warehouse').get_query = function(doc, cdt, cdn) {\r\n        var child = locals[cdt][cdn];\r\n        //console.log(child);\r\n        return {    \r\n            filters:[\r\n                ['parent_warehouse ', '=',\"KHO - AH\" ]\r\n            ]\r\n        };\r\n    };\r\n\r\n\r\n\r\n});",
+  "view": "Form"
+ }
+]

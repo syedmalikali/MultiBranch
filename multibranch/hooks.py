@@ -178,4 +178,11 @@ user_data_fields = [
 # auth_hooks = [
 # 	"multibranch.auth.validate"
 # ]
-
+fixtures = [
+{"doctype":"Custom Field"},# “filters”: [["_user_tags", “like”, ("%myApp%")]]},
+{"doctype":"Property Setter"},# “filters”: [["_user_tags", “like”, ("%myApp%")]]},
+{"doctype":"Client Script"}
+#{“doctype”:“Notification”, “filters”: [{“is_standard”:0}]}, ‘Auto Email Report’, “Translation”,
+#{“doctype”:“Print Format”, “filters”: [{“module”:“myApp”}]},
+#{“doctype”:“Report”, “filters”: [{“module”:“myApp”}]}
+]
