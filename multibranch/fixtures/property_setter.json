@@ -1987,5 +1987,22 @@
   "property_type": "Check",
   "row_name": null,
   "value": "1"
- }
+},
+ {
+  "default_value": null,
+  "doc_type": "Customer",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "column_break_38",
+  "modified": "2022-03-16 17:15:30.987177",
+  "name": "Loyalty Points",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "property": "hidden",
+  "property_type": "Check",
+  "row_name": null,
+  "value": "1"
+}
 ]
